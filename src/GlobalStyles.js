@@ -6,8 +6,7 @@ ${reset}
 
 body{
     background-color: #1E213F;
-    font-family: 'sans-serif';
-    font-family: ${({ theme }) => theme.font}
+    font-family: 'Kumbh Sans', sans-serif;
 }
 h1,h2,h3,h4{
     font-weight: bold;

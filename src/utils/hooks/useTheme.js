@@ -19,10 +19,6 @@ export const useTheme = () => {
   const getFonts = () => {
     const allFonts = [];
 
-    for (let theme in themes.data) {
-      allFonts.push(themes.data[theme].font);
-    }
-
     return allFonts;
   };
 

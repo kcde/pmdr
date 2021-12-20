@@ -1,28 +1,11 @@
 {
   "data": {
-    "default": {
-      "id": "T_001",
-      "name": "Orange",
-      "colors": {
-        "primary": "#F87070"
-      },
-      "font": "Kumbh Sans"
-    },
-    "cyan": {
-      "id": "T_002",
-      "name": "Cyan",
-      "colors": {
-        "primary": "#70F3F8"
-      },
-      "font": "Roboto Slab"
-    },
-    "purple": {
-      "id": "T_003",
-      "name": "Purple",
-      "colors": {
-        "primary": "#D881F8"
-      },
-      "font": "Space Mono"
-    }
+    "mainColors": [
+      { "name": "orange", "code": "#F87070" },
+      { "name": "cyan", "code": "#70F3F8" },
+      { "name": "purple", "code": "#D881F8" }
+    ],
+
+    "fonts": ["Kumbh Sans", "Roboto Slab", "Space Mono"]
   }
 }

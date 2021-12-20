@@ -1,8 +1,26 @@
+import { useState } from 'react';
+import styled from 'styled-components';
+import Header from './components/Header/Header';
+import { Settings } from '@styled-icons/evaicons-solid';
+
+const SettingsButton = styled.div`
+  background: none;
+  border: none;
+  display: grid;
+  place-items: center;
+`;
+const Wrapper = styled.div``;
+
 function App() {
+  const [modalOpen, setModalOpen] = useState(false);
   return (
-    <div className="App">
-      <h3>Hello World</h3>
-    </div>
+    <Wrapper>
+      <Header />
+
+      <SettingsButton>
+        <Settings color="#D7E0FF" width="28" height="28" onClick={() => {}} />
+      </SettingsButton>
+    </Wrapper>
   );
 }
 export default App;
