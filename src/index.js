@@ -8,7 +8,11 @@ const Index = () => {
   useEffect(() => {
     WebFont.load({
       google: {
-        families: ['Kumbh Sans', 'Roboto Slab', 'Space Mono'],
+        families: [
+          'Kumbh Sans:400,500,600,700',
+          'Roboto Slab:400,500,600,700',
+          'Space Mono:400,500,600,700',
+        ],
       },
     });
   }, []);

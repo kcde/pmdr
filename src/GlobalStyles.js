@@ -17,23 +17,37 @@ h1{
     letter-spacing: -5px;
 }
 h2{
-    font-size: 28px;
+    font-size: 1.25rem;
     line-height:2.125rem;
 
 }
 
 h3{
-    font-size:1rem;
-    line-height:1.1875rem;
-    letter-spacing:15px;
+    font-size:11px;
+    line-height: 11px;
+    letter-spacing:4px;
     text-transform: uppercase;
 }
 
 h4{
-    font-size:0.1875rem;
+    font-size:12px;
+    font-weight: 600;
     line-height:1rem;
-    letter-spacing:5px;
-    text-transform: uppercase;
 }
+
+button{
+    background: none;
+    border:none;
+}
+
+@media screen and (min-width: 920px) {
+
+    h2{
+    font-size:28px
+    }
+    h3{
+    font-size:13px;
+    }
+  }
 
 `;
