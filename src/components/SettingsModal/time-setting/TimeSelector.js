@@ -14,6 +14,7 @@ const Wrapper = styled.div`
 const TimeType = styled.h4`
   color: rgba(30, 33, 63, 1);
   opacity: 40%;
+  flex: 1;
   @media screen and (min-width: 768px) {
     margin-bottom: 8px;
   }
@@ -25,10 +26,10 @@ const TimeInputWrapper = styled.div`
   padding-left: 1rem;
   padding-right: 11px;
   display: flex;
+  flex: 1;
   align-items: center;
   justify-content: space-between;
   height: 40px;
-  width: 140px;
 `;
 
 const TimeInput = styled.input.attrs({ type: 'number' })`
@@ -61,7 +62,7 @@ export const TimeSelector = ({ handleDec, defaultVal }) => {
     <Wrapper>
       <TimeType>pomodoro </TimeType>
       <TimeInputWrapper>
-        <TimeInput value={inputVal} onChange={(e) => setInputVal(e.target.value)} min="5" />
+        <TimeInput value={inputVal} onChange={(e) => setInputVal(Number(e.target.value))} min="5" />
         <TimeInputControl>
           <InputControlButton onClick={() => setInputVal(inputVal + 1)}>
             {' '}

@@ -2,6 +2,10 @@ import React from 'react';
 import styled from 'styled-components';
 import { TimeSelector } from './TimeSelector';
 
+const Wrapper = styled.div`
+  border-bottom: 1px solid #979797;
+  padding-bottom: 24px;
+`;
 const TimeHead = styled.h3`
   text-align: center;
   margin-bottom: 26px;
@@ -23,19 +27,20 @@ const TimeSelectorWrapper = styled.div`
     justify-content: space-between;
     > * + * {
       margin-top: 0;
+      margin-left: 10px;
     }
   }
 `;
 
 export const SettingTime = () => {
   return (
-    <>
+    <Wrapper>
       <TimeHead>time (minutes)</TimeHead>
       <TimeSelectorWrapper>
         <TimeSelector defaultVal={15} />
         <TimeSelector defaultVal={15} />
         <TimeSelector defaultVal={15} />
       </TimeSelectorWrapper>
-    </>
+    </Wrapper>
   );
 };

@@ -3,7 +3,9 @@ import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { Close } from '@styled-icons/evaicons-solid';
 import { Overlay } from './Overlay';
-import { SettingTime } from './SettingTime';
+import { SettingTime } from './time-setting/SettingTime';
+import { SettingFont } from './font-setting/SettingFont';
+import { SettingColor } from './color-setting/SettingColor';
 
 const ModalWrapper = styled.div`
   background-color: white;
@@ -14,9 +16,8 @@ const ModalWrapper = styled.div`
   left: 50%;
   transform: translate(-50%, -50%);
   z-index: 4;
-
-  @media screen and (min-width: 920px) {
-    width: 50vw;
+  @media screen and (min-width: 768px) {
+    width: 540px;
   }
 `;
 const SettingHeader = styled.div`
@@ -58,7 +59,9 @@ export const SettingsModal = ({ setModal }) =>
           {/* Setting timer */}
           <SettingTime />
           {/* Setting fonts*/}
+          <SettingFont />
           {/* Setting color*/}
+          <SettingColor />
         </SettingBody>
         {/* apply button*/}
       </ModalWrapper>
