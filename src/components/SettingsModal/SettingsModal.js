@@ -6,6 +6,7 @@ import { Overlay } from './Overlay';
 import { SettingTime } from './time-setting/SettingTime';
 import { SettingFont } from './font-setting/SettingFont';
 import { SettingColor } from './color-setting/SettingColor';
+import { ApplyButton } from './ApplyButton';
 
 const ModalWrapper = styled.div`
   background-color: white;
@@ -35,12 +36,26 @@ const SettingClose = styled.button`
   border: none;
   background-color: transparent;
 `;
+
+const StyledCloseIcon = styled(Close)`
+  color: #979797;
+  :hover {
+    color: #1e213f;
+  }
+`;
 const SettingBody = styled.div`
   padding: 24px;
   @media screen and (min-width: 920px) {
     padding-left: 40px;
     padding-right: 40px;
   }
+`;
+
+const ApplyButtonWrapper = styled.div`
+  position: absolute;
+  left: 50%;
+  transform: translateX(-50%);
+  bottom: -${53 / 2}px;
 `;
 
 export const SettingsModal = ({ setModal }) =>
@@ -51,7 +66,7 @@ export const SettingsModal = ({ setModal }) =>
         <SettingHeader>
           <SettingHead>Settings</SettingHead>
           <SettingClose onClick={() => setModal(false)}>
-            <Close width="24" height="24" color="#979797" />
+            <StyledCloseIcon width="24" height="24" />
           </SettingClose>
         </SettingHeader>
 
@@ -64,6 +79,9 @@ export const SettingsModal = ({ setModal }) =>
           <SettingColor />
         </SettingBody>
         {/* apply button*/}
+        <ApplyButtonWrapper>
+          <ApplyButton />
+        </ApplyButtonWrapper>
       </ModalWrapper>
     </>,
     document.getElementById('modal')

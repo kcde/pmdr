@@ -11,6 +11,23 @@ const Wrapper = styled.div`
   }
 `;
 
+const StyledArrowDown = styled(ArrowIosDownward)`
+  cursor: pointer;
+  color: #1e213f;
+  opacity: 25%;
+  :hover {
+    opacity: 100%;
+  }
+`;
+const StyledArrowUp = styled(ArrowIosUpward)`
+  cursor: pointer;
+  color: #1e213f;
+  opacity: 25%;
+  :hover {
+    opacity: 100%;
+  }
+`;
+
 const TimeType = styled.h4`
   color: rgba(30, 33, 63, 1);
   opacity: 40%;
@@ -52,31 +69,21 @@ const TimeInputControl = styled.div`
   color: rgba(30, 33, 63, 1);
 `;
 
-const InputControlButton = styled.button`
-  opacity: 24%;
-  cursor: pointer;
-`;
-
-export const TimeSelector = ({ handleDec, defaultVal }) => {
+export const TimeSelector = ({ defaultVal, type }) => {
   const [inputVal, setInputVal] = useState(defaultVal);
   return (
     <Wrapper>
-      <TimeType>pomodoro </TimeType>
+      <TimeType>{type} </TimeType>
       <TimeInputWrapper>
         <TimeInput value={inputVal} onChange={(e) => setInputVal(Number(e.target.value))} min="5" />
         <TimeInputControl>
-          <InputControlButton onClick={() => setInputVal(inputVal + 1)}>
-            {' '}
-            <ArrowIosUpward size="18" />
-          </InputControlButton>
-          <InputControlButton
+          <StyledArrowUp size="18" onClick={() => setInputVal(inputVal + 1)} />
+          <StyledArrowDown
+            size="18"
             onClick={() => {
               if (!(inputVal <= 5)) setInputVal(inputVal - 1);
             }}
-          >
-            {' '}
-            <ArrowIosDownward size="18" />
-          </InputControlButton>
+          />
         </TimeInputControl>
       </TimeInputWrapper>
     </Wrapper>

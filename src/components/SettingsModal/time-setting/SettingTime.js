@@ -33,13 +33,18 @@ const TimeSelectorWrapper = styled.div`
 `;
 
 export const SettingTime = () => {
+  const timers = [
+    { type: 'pomodoro', default: 25 },
+    { type: 'short break', default: 5 },
+    { type: 'long break', default: 15 },
+  ];
   return (
     <Wrapper>
       <TimeHead>time (minutes)</TimeHead>
       <TimeSelectorWrapper>
-        <TimeSelector defaultVal={15} />
-        <TimeSelector defaultVal={15} />
-        <TimeSelector defaultVal={15} />
+        {timers.map((timer) => (
+          <TimeSelector defaultVal={timer.default} type={timer.type} />
+        ))}
       </TimeSelectorWrapper>
     </Wrapper>
   );
