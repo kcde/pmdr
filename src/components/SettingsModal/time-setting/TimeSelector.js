@@ -54,6 +54,7 @@ const TimeInputControl = styled.div`
 
 const InputControlButton = styled.button`
   opacity: 24%;
+  cursor: pointer;
 `;
 
 export const TimeSelector = ({ handleDec, defaultVal }) => {

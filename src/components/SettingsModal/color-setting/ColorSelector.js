@@ -9,12 +9,13 @@ const Selector = styled.div((props) => ({
   borderRadius: '100%',
   display: 'grid',
   placeItems: 'center',
+  cursor: 'pointer',
 }));
 
-export const ColorSelector = ({ color }) => {
+export const ColorSelector = ({ color, selected, clicked }) => {
   return (
-    <Selector bg={color}>
-      <Checkmark size={24} />
+    <Selector bg={color} onClick={clicked}>
+      {selected ? <Checkmark size={24} /> : null}
     </Selector>
   );
 };

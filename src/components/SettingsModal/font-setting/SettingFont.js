@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { FontSelector } from './FontSelector';
 
@@ -35,6 +35,8 @@ const FontSelectorWrapper = styled.div`
 `;
 
 export const SettingFont = () => {
+  const [selected, setSelected] = useState(0);
+
   const requiredFonts = ['Kumbh Sans', 'Roboto Slab', 'Space Mono'];
   return (
     <Wrapper>
@@ -42,7 +44,12 @@ export const SettingFont = () => {
 
       <FontSelectorWrapper>
         {requiredFonts.map((font, i) => (
-          <FontSelector key={i} font={font} />
+          <FontSelector
+            key={i}
+            font={font}
+            selected={selected === i}
+            clicked={() => setSelected(i)}
+          />
         ))}
       </FontSelectorWrapper>
     </Wrapper>

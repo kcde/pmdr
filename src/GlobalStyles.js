@@ -9,7 +9,7 @@ body{
     font-family: 'Kumbh Sans', sans-serif;
 }
 h1,h2,h3,h4{
-    font-weight: bold;
+    font-weight: 600;
 }
 h1{
     font-size:6.25rem;
@@ -31,7 +31,7 @@ h3{
 
 h4{
     font-size:12px;
-    font-weight: 600;
+    font-weight: 700;
     line-height:1rem;
 }
 

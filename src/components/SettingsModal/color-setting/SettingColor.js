@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import styled from 'styled-components';
 import { ColorSelector } from './ColorSelector';
 
@@ -35,13 +35,19 @@ const ColorSelectorWrapper = styled.div`
 
 export const SettingColor = () => {
   const requiredColor = ['F87070', '70F3F8', 'D881F8'];
+  const [selected, setSelected] = useState(0);
   return (
     <Wrapper>
       <ColorHead>color</ColorHead>
 
       <ColorSelectorWrapper>
         {requiredColor.map((color, i) => (
-          <ColorSelector key={i} color={`#${color}`} />
+          <ColorSelector
+            selected={color === requiredColor[selected]}
+            key={i}
+            color={`#${color}`}
+            clicked={() => setSelected(i)}
+          />
         ))}
       </ColorSelectorWrapper>
     </Wrapper>
