@@ -32,19 +32,29 @@ const TimeSelectorWrapper = styled.div`
   }
 `;
 
-export const SettingTime = () => {
-  const timers = [
-    { type: 'pomodoro', default: 25 },
-    { type: 'short break', default: 5 },
-    { type: 'long break', default: 15 },
-  ];
+export const SettingTime = ({
+  pomodoroTime,
+  shortBreakTime,
+  longBreakTime,
+  setPomodoroTime,
+  setShortBreakTime,
+  setLongBreakTime,
+}) => {
   return (
     <Wrapper>
       <TimeHead>time (minutes)</TimeHead>
       <TimeSelectorWrapper>
-        {timers.map((timer) => (
-          <TimeSelector defaultVal={timer.default} type={timer.type} />
-        ))}
+        <TimeSelector defaultVal={pomodoroTime} type="pomodoro" changeHandler={setPomodoroTime} />
+        <TimeSelector
+          defaultVal={shortBreakTime}
+          type="short break"
+          changeHandler={setShortBreakTime}
+        />
+        <TimeSelector
+          defaultVal={longBreakTime}
+          type="long break"
+          changeHandler={setLongBreakTime}
+        />
       </TimeSelectorWrapper>
     </Wrapper>
   );

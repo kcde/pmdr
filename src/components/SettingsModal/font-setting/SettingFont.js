@@ -34,16 +34,16 @@ const FontSelectorWrapper = styled.div`
   }
 `;
 
-export const SettingFont = () => {
-  const [selected, setSelected] = useState(0);
+export const SettingFont = ({ themeFonts, selected, setSelected }) => {
+  //`const [selected, setSelected] = useState(0);
 
-  const requiredFonts = ['Kumbh Sans', 'Roboto Slab', 'Space Mono'];
+  //const requiredFonts = ['Kumbh Sans', 'Roboto Slab', 'Space Mono'];
   return (
     <Wrapper>
       <FontHead>Font</FontHead>
 
       <FontSelectorWrapper>
-        {requiredFonts.map((font, i) => (
+        {themeFonts.map((font, i) => (
           <FontSelector
             key={i}
             font={font}

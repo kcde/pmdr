@@ -69,19 +69,23 @@ const TimeInputControl = styled.div`
   color: rgba(30, 33, 63, 1);
 `;
 
-export const TimeSelector = ({ defaultVal, type }) => {
-  const [inputVal, setInputVal] = useState(defaultVal);
+export const TimeSelector = ({ defaultVal, type, changeHandler }) => {
+  //const [inputVal, setInputVal] = useState(defaultVal);
   return (
     <Wrapper>
       <TimeType>{type} </TimeType>
       <TimeInputWrapper>
-        <TimeInput value={inputVal} onChange={(e) => setInputVal(Number(e.target.value))} min="5" />
+        <TimeInput
+          value={defaultVal}
+          onChange={(e) => changeHandler(Number(e.target.value))}
+          min="5"
+        />
         <TimeInputControl>
-          <StyledArrowUp size="18" onClick={() => setInputVal(inputVal + 1)} />
+          <StyledArrowUp size="18" onClick={() => changeHandler(defaultVal + 1)} />
           <StyledArrowDown
             size="18"
             onClick={() => {
-              if (!(inputVal <= 5)) setInputVal(inputVal - 1);
+              if (!(defaultVal <= 5)) changeHandler(defaultVal - 1);
             }}
           />
         </TimeInputControl>

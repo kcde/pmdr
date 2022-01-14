@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import { createPortal } from 'react-dom';
 import styled from 'styled-components';
 import { Close } from '@styled-icons/evaicons-solid';
@@ -7,6 +7,7 @@ import { SettingTime } from './time-setting/SettingTime';
 import { SettingFont } from './font-setting/SettingFont';
 import { SettingColor } from './color-setting/SettingColor';
 import { ApplyButton } from './ApplyButton';
+import theme from '../../theme/schema.json';
 
 const ModalWrapper = styled.div`
   background-color: white;
@@ -28,7 +29,7 @@ const SettingHeader = styled.div`
   padding: 24px 24px 31px 24px;
   border-bottom: 1px solid #979797;
   @media screen and (min-width: 920px) {
-    padding: 24px 4px 31px 40px;
+    padding: 24px 40px 31px 40px;
   }
 `;
 const SettingHead = styled.h2``;
@@ -58,8 +59,16 @@ const ApplyButtonWrapper = styled.div`
   bottom: -${53 / 2}px;
 `;
 
-export const SettingsModal = ({ setModal }) =>
-  createPortal(
+export const SettingsModal = ({ setModal }) => {
+  const [color, setColor] = useState(0);
+  const [font, setFont] = useState(0);
+  const [pomodoro, setPomodoro] = useState(25);
+  const [shortBreak, setShortBreak] = useState(5);
+  const [longBreak, setLongBreak] = useState(15);
+
+  const { mainColors, fonts } = theme.data;
+
+  return createPortal(
     <>
       <Overlay />
       <ModalWrapper>
@@ -72,11 +81,18 @@ export const SettingsModal = ({ setModal }) =>
 
         <SettingBody>
           {/* Setting timer */}
-          <SettingTime />
+          <SettingTime
+            pomodoroTime={pomodoro}
+            shortBreakTime={shortBreak}
+            longBreakTime={longBreak}
+            setPomodoroTime={setPomodoro}
+            setShortBreakTime={setShortBreak}
+            setLongBreakTime={setLongBreak}
+          />
           {/* Setting fonts*/}
-          <SettingFont />
+          <SettingFont themeFonts={fonts} selected={font} setSelected={setFont} />
           {/* Setting color*/}
-          <SettingColor />
+          <SettingColor selected={color} setSelected={setColor} themeColors={mainColors} />
         </SettingBody>
         {/* apply button*/}
         <ApplyButtonWrapper>
@@ -86,3 +102,4 @@ export const SettingsModal = ({ setModal }) =>
     </>,
     document.getElementById('modal')
   );
+};
