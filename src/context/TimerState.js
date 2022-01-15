@@ -5,13 +5,13 @@ import { ADD_SETTINGS } from './timer-actions';
 
 const TimerState = (props) => {
   const initialState = {
-    timer: {
+    settings: {
       pomodoro: 25,
       shortBreak: 5,
-      longBreak: 15,
+      longBreak: 157,
+      font: 'Kumbh Sans',
+      color: { name: 'orange', code: '#F87070' },
     },
-    font: 'Kumbh Sans',
-    color: 'F87070',
     paused: true,
   };
 
@@ -24,9 +24,7 @@ const TimerState = (props) => {
 
   const [state, dispatch] = useReducer(timerReducer, initialState);
   return (
-    <TimerContext.Provider
-      value={{ timerSettings: state.timer, font: state.font, color: state.color, addSettings }}
-    >
+    <TimerContext.Provider value={{ settings: state.settings, addSettings }}>
       {props.children}
     </TimerContext.Provider>
   );

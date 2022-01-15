@@ -12,6 +12,10 @@ const Wrapper = styled.button`
   cursor: pointer;
 `;
 
-export const ApplyButton = () => {
-  return <Wrapper bg="#f87070">Apply</Wrapper>;
+export const ApplyButton = ({ clickHandler }) => {
+  return (
+    <Wrapper bg="#f87070" onClick={clickHandler}>
+      Apply
+    </Wrapper>
+  );
 };
