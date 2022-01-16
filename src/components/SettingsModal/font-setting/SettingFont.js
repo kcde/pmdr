@@ -47,8 +47,8 @@ export const SettingFont = ({ themeFonts, selected, setSelected }) => {
           <FontSelector
             key={i}
             font={font}
-            selected={selected === i}
-            clicked={() => setSelected(i)}
+            selected={selected === font}
+            clicked={() => setSelected(font)}
           />
         ))}
       </FontSelectorWrapper>

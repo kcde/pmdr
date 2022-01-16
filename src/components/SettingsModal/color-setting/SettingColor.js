@@ -42,10 +42,10 @@ export const SettingColor = ({ themeColors, selected, setSelected }) => {
       <ColorSelectorWrapper>
         {themeColors.map((color, i) => (
           <ColorSelector
-            selected={color.code === themeColors[selected].code}
+            selected={color.code === selected}
             key={color.code}
             color={`${color.code}`}
-            clicked={() => setSelected(i)}
+            clicked={() => setSelected(color.code)}
           />
         ))}
       </ColorSelectorWrapper>

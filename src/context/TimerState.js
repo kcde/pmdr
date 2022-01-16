@@ -8,9 +8,9 @@ const TimerState = (props) => {
     settings: {
       pomodoro: 25,
       shortBreak: 5,
-      longBreak: 157,
+      longBreak: 15,
       font: 'Kumbh Sans',
-      color: { name: 'orange', code: '#F87070' },
+      color: '#F87070',
     },
     paused: true,
   };

@@ -62,9 +62,8 @@ const ApplyButtonWrapper = styled.div`
 
 export const SettingsModal = ({ setModal }) => {
   const { settings, addSettings } = useContext(TimerContext);
-  console.log(settings);
-  const [color, setColor] = useState(0);
-  const [font, setFont] = useState(0);
+  const [color, setColor] = useState(settings.color);
+  const [font, setFont] = useState(settings.font);
   const [pomodoro, setPomodoro] = useState(settings.pomodoro);
   const [shortBreak, setShortBreak] = useState(settings.shortBreak);
   const [longBreak, setLongBreak] = useState(settings.longBreak);
@@ -76,12 +75,9 @@ export const SettingsModal = ({ setModal }) => {
       pomodoro: pomodoro,
       shortBreak: shortBreak,
       longBreak: longBreak,
-      font: fonts[font],
-      color: mainColors[color],
+      font: font,
+      color: color,
     };
-
-    console.log(appSetting);
-
     addSettings(appSetting);
   };
 

@@ -28,7 +28,6 @@ function App() {
         <SettingsButton
           onClick={() => {
             setModalOpen(true);
-            console.log('clicked');
           }}
         >
           <Settings color="#D7E0FF" width="28" height="28" onClick={() => {}} />
