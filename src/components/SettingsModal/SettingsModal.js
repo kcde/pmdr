@@ -65,16 +65,16 @@ export const SettingsModal = ({ setModal }) => {
   const [color, setColor] = useState(settings.color);
   const [font, setFont] = useState(settings.font);
   const [pomodoro, setPomodoro] = useState(settings.pomodoro);
-  const [shortBreak, setShortBreak] = useState(settings.shortBreak);
-  const [longBreak, setLongBreak] = useState(settings.longBreak);
+  const [shortBreak, setShortBreak] = useState(settings['short break']);
+  const [longBreak, setLongBreak] = useState(settings['long break']);
 
   const { mainColors, fonts } = theme.data;
 
   const applyHandler = () => {
     let appSetting = {
       pomodoro: pomodoro,
-      shortBreak: shortBreak,
-      longBreak: longBreak,
+      'short break': shortBreak,
+      'long break': longBreak,
       font: font,
       color: color,
     };

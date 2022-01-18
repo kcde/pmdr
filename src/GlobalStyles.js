@@ -4,6 +4,10 @@ import reset from 'styled-reset';
 export const GlobalStyles = createGlobalStyle`
 ${reset}
 
+*{
+    box-sizing: border-box
+}
+
 body{
     background-color: #1E213F;
     font-family: 'Kumbh Sans', sans-serif;
