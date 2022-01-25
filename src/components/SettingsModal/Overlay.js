@@ -6,6 +6,6 @@ export const Overlay = styled.div`
   right: 0;
   top: 0;
   bottom: 0;
-  z-index: 1;
+  z-index: 2;
   background-color: rgba(30, 33, 63, 0.95);
 `;

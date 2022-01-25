@@ -16,7 +16,7 @@ h1,h2,h3,h4{
     font-weight: 600;
 }
 h1{
-    font-size:6.25rem;
+    font-size:80px;
     line-height:7.5rem;
     letter-spacing: -5px;
 }
