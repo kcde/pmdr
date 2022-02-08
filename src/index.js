@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom';
 import App from './App';
 import { GlobalStyles } from './GlobalStyles';
 import WebFont from 'webfontloader';
+import TimerState from './context/TimerState';
 
 const Index = () => {
   useEffect(() => {
@@ -26,7 +27,9 @@ const Index = () => {
 
 ReactDOM.render(
   <React.StrictMode>
-    <Index />
+    <TimerState>
+      <Index />
+    </TimerState>
   </React.StrictMode>,
   document.getElementById('root')
 );

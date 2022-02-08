@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import React, { useState, useContext } from 'react';
 import { TimerContext } from '../../context/timerContext';
 import styled from 'styled-components';
 
@@ -26,18 +26,19 @@ const TimeBarButton = styled.button`
   cursor: pointer;
 `;
 
-const TimerBar = () => {
+const TimerBar = ({ start }) => {
   //   const timers = ['pomodoro', 'short break', 'long break'];
   const [selectedTimer, setSelectedTimer] = useState(0);
-  const { settings, addTimer, currentTimer } = useContext(TimerContext);
+  const { settings, setPause, addTimer } = useContext(TimerContext);
   const timers = ['pomodoro', 'short break', 'long break'];
 
   const timerSelectHandler = (id, timerName) => {
+    setPause(false);
     setSelectedTimer(id);
     addTimer(settings[timerName]);
+    start(settings[timerName]);
   };
 
-  useEffect(() => {});
   return (
     <StyledTimeBar>
       {timers.map((timer, i) => (

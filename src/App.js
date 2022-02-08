@@ -1,4 +1,4 @@
-import { useState, useEffect, useContext } from 'react';
+import { useState } from 'react';
 import styled from 'styled-components';
 import Header from './components/Header/Header';
 import { Settings } from '@styled-icons/evaicons-solid';
@@ -7,8 +7,6 @@ import TimerState from './context/TimerState';
 import TimerBar from './components/timerBar/TimerBar';
 import Countdown from './components/Countdown/Countdown';
 import useCountDown from 'react-countdown-hook';
-import { TimerContext } from './context/timerContext';
-
 const SettingsButton = styled.div`
   background: none;
   border: none;
@@ -21,25 +19,27 @@ const Wrapper = styled.div`
   margin: 0 auto;
 `;
 
-function App() {
+const App = () => {
   const [modalOpen, setModalOpen] = useState(false);
-  const [timeLeft, { start, pause, resume }] = useCountDown(10 * 1 * 1000);
+  const [timeLeft, { start, pause, resume }] = useCountDown();
 
-  function pausedHandler() {
-    pause();
-  }
-
-  function resumeHandler() {
-    resume();
+  function restart(time) {
+    start(60 * time * 1000);
   }
 
   return (
     <TimerState>
       <Wrapper>
         <Header />
-        <TimerBar />
+        <TimerBar start={restart} />
 
-        <Countdown pause={pausedHandler} resume={resumeHandler} timeLeft={timeLeft} start={start} />
+        <Countdown
+          pause={pause}
+          resume={resume}
+          timeLeft={timeLeft}
+          start={start}
+          restart={restart}
+        />
 
         <SettingsButton
           onClick={() => {
@@ -53,5 +53,5 @@ function App() {
       </Wrapper>
     </TimerState>
   );
-}
+};
 export default App;
